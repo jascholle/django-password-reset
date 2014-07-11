@@ -25,7 +25,7 @@ Installation
 
 * ``pip install -U django-password-reset``
 * Add ``password_reset`` to your ``INSTALLED_APPS``
-* Include ``password_reset.urls`` in your root ``urls.py``
+* Include ``url(r'^passwordreset/', include('password_reset.urls', namespace='password-reset')),`` in your root ``urls.py``
 
 For extensive documentation see the ``docs`` folder or `read it on
 readthedocs`_
