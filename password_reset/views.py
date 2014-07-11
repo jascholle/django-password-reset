@@ -51,7 +51,7 @@ class Recover(SaltMixin, generic.FormView):
     case_sensitive = True
     form_class = PasswordRecoveryForm
     template_name = 'password_reset/recovery_form.html'
-    success_url_name = 'password_reset_sent'
+    success_url_name = 'django-password-reset:password_reset_sent'
     email_template_name = 'password_reset/recovery_email.txt'
     email_subject_template_name = 'password_reset/recovery_email_subject.txt'
     search_fields = ['username', 'email']
@@ -113,7 +113,7 @@ class Reset(SaltMixin, generic.FormView):
     form_class = PasswordResetForm
     token_expires = 3600 * 48  # Two days
     template_name = 'password_reset/reset.html'
-    success_url = reverse_lazy('password_reset_done')
+    success_url = reverse_lazy('django-password-reset:password_reset_done')
 
     def dispatch(self, request, *args, **kwargs):
         self.request = request
